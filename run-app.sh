@@ -1,0 +1,1 @@
+sudo docker run --rm --name adutora-container -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix adutora-image

@@ -1,11 +1,12 @@
 from kivymd.app import MDApp
-from kivymd.uix.label import MDLabel
-
+from kivy.lang import Builder
 
 class MainApp(MDApp):
     def build(self):
-        return MDLabel(text="Hello, World", halign="center")
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "Orange"
 
+        return Builder.load_file("interface.kv")
 
 if __name__ == "__main__":
     MainApp().run()

@@ -6,8 +6,10 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN sudo dnf upgrade -y --refresh && \
-    sudo dnf install -y python && \
-    sudo dnf install -y python3-pip && \
+    sudo dnf install -y python \
+    python3-pip \
+    xclip \
+    xsel && \
     sudo dnf install -y curl && \
     sudo curl -O https://rpmfind.net/linux/fedora/linux/releases/38/Everything/x86_64/os/Packages/m/mtdev-1.1.6-5.fc38.x86_64.rpm && \
     sudo dnf install -y mtdev-1.1.6-5.fc38.x86_64.rpm && \

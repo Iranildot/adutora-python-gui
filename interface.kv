@@ -1,0 +1,51 @@
+<Label>
+    color: (1, 1, 1, 1)
+    italic:True
+    outline_color: (0, 0, 1)
+    outline_width: 5
+    pos_hint: {"center_x": .5}
+    size_hint: .5,.01
+
+
+<TextInput>
+    color: (0, 0, 1, 1)
+    background_color: (.9, .9, .9, 1)
+    font_size:25
+    multiline:False
+    pos_hint: {"center_x": .5}
+    size_hint: .5,.1
+
+<Button>
+    color: (1, 1, 1, 1)
+    background_normal: ""
+    background_color: (0, 0, 1, 1)
+    font_size: 25
+    pos_hint: {"center_x": .5}
+    size_hint: .5,.1
+
+<Interface>
+    canvas.before:
+        Color: 
+            rgba: (.8,.8,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation:"vertical"
+        padding: (50, 180)
+        size: root.width, root.height
+        spacing: 25
+        
+        Label:
+            text:"BLUSA"
+
+        TextInput:
+            text:"text"
+
+        Label:
+            text: "PASSWORD"
+        TextInput:
+            text:"text"
+
+        Button:
+            text:"SIGN IN"

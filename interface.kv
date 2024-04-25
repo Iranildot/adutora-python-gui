@@ -1,10 +1,108 @@
-MDScreen:
-    md_bg_color: self.theme_cls.backgroundColor
-    MDButton:
-        style: "filled"
-        pos_hint:{"center_x": 0.5, "center_y": 0.5}
-        MDButtonText:
-            text:"Editar"
-        
-        MDButtonIcon:
-            icon: "water-pump"
+#:import MDActionBottomAppBarButton kivymd.uix.appbar.MDActionBottomAppBarButton
+
+MDNavigationLayout:
+    MDScreenManager:
+
+        MDScreen:
+            md_bg_color: self.theme_cls.backgroundColor
+
+            MDBottomAppBar:
+                action_items:
+                    [
+                    MDActionBottomAppBarButton(icon="plus"),
+                    MDActionBottomAppBarButton(icon="pencil"),
+                    MDActionBottomAppBarButton(icon="minus"),
+                    ]
+                    
+            MDTopAppBar:
+                type: "small"
+                pos_hint: {"center_y": .95}
+
+                MDTopAppBarLeadingButtonContainer:
+
+                    MDActionTopAppBarButton:
+                        icon: "menu"
+                        on_release: nav_drawer.set_state("toggle")
+
+                MDTopAppBarTitle:
+                    text: "Cadastrar"
+
+                MDTopAppBarTrailingButtonContainer:
+                    
+                    MDActionTopAppBarButton:
+                        icon: "calendar"
+                        on_release: app.show_date_picker()
+
+                    MDActionTopAppBarButton:
+                        id:button
+                        icon: "dots-vertical"
+                        on_release: app.menu_open()
+            
+
+    MDNavigationDrawer:
+        id: nav_drawer
+        radius: 0, dp(16), dp(16), 0
+
+        MDNavigationDrawerMenu:
+
+            MDNavigationDrawerLabel:
+                text: "Adutora de Ursulina"
+
+            MDNavigationDrawerItem:
+
+                MDNavigationDrawerItemLeadingIcon:
+                    icon: "account"
+
+                MDNavigationDrawerItemText:
+                    text: "Cadastrar"
+
+                MDNavigationDrawerItemTrailingText:
+                    text: "50"
+            
+            MDNavigationDrawerItem:
+
+                MDNavigationDrawerItemLeadingIcon:
+                    icon: "text-box-outline"
+
+                MDNavigationDrawerItemText:
+                    text: "Dados Gerais"
+            
+            MDNavigationDrawerItem:
+
+                MDNavigationDrawerItemLeadingIcon:
+                    icon: "meter-gas-outline"
+
+                MDNavigationDrawerItemText:
+                    text: "Metragem"
+
+                MDNavigationDrawerItemTrailingText:
+                    text: "6"
+
+            MDNavigationDrawerItem:
+
+                MDNavigationDrawerItemLeadingIcon:
+                    icon: "file-document-multiple-outline"
+
+                MDNavigationDrawerItemText:
+                    text: "Papeis"
+
+                MDNavigationDrawerItemTrailingText:
+                    text: "30"
+            
+            MDNavigationDrawerItem:
+
+                MDNavigationDrawerItemLeadingIcon:
+                    icon: "water-pump"
+
+                MDNavigationDrawerItemText:
+                    text: "Bomba"
+
+            MDNavigationDrawerDivider:
+
+            MDNavigationDrawerItem:
+
+                MDNavigationDrawerItemLeadingIcon:
+                    icon: "cog"
+
+                MDNavigationDrawerItemText:
+                    text: "Configurações"
